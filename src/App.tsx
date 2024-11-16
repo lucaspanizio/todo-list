@@ -1,20 +1,17 @@
-import { Fragment } from 'react/jsx-runtime';
+import { Fragment } from 'react';
 import { GlobalStyles } from './GlobalStyles';
+import { Form } from './components/Form';
+import { Header } from './components/Header';
+import { Content } from './components/Content';
 
 export function App() {
   return (
     <Fragment>
       <GlobalStyles />
-      <h1
-        style={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-        }}
-      >
-        ToDo List
-      </h1>
+      <Header />
+      <Content>
+        <Form />
+      </Content>
     </Fragment>
   );
 }
