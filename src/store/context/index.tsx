@@ -1,10 +1,5 @@
-import {
-  createContext,
-  PropsWithChildren,
-  useCallback,
-  useMemo,
-  useState,
-} from 'react';
+import { PropsWithChildren, useCallback, useMemo, useState } from 'react';
+import { createContext } from 'use-context-selector';
 import { v4 as uuid } from 'uuid';
 
 export type ToDo = {
@@ -13,7 +8,7 @@ export type ToDo = {
   completed: boolean;
 };
 
-type AppContextType = {
+export type AppContextType = {
   count: number;
   numberOfCompleted: number;
   toDos: ToDo[];

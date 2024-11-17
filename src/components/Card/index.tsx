@@ -8,7 +8,8 @@ interface ICardProps {
 }
 
 export function Card({ data: { uuid, title } }: ICardProps) {
-  const { removeToDo, toggleCheckToDo } = useToDos();
+  const removeToDo = useToDos((context) => context.removeToDo);
+  const toggleCheckToDo = useToDos((context) => context.toggleCheckToDo);
 
   function handleRemove() {
     removeToDo(uuid);

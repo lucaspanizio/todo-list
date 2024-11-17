@@ -3,7 +3,7 @@ import { Card } from '@/components/Card';
 import * as S from './styles';
 
 export function List() {
-  const { toDos } = useToDos();
+  const toDos = useToDos((context) => context.toDos);
 
   return (
     <S.Wrapper>

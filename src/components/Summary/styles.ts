@@ -10,7 +10,7 @@ export const Summary = styled.div`
 `;
 
 interface IBadgeWrapperProps {
-  variant: 'created' | 'completed';
+  $variant: 'created' | 'completed';
 }
 
 export const BadgeWrapper = styled.div<IBadgeWrapperProps>`
@@ -19,7 +19,7 @@ export const BadgeWrapper = styled.div<IBadgeWrapperProps>`
   align-items: center;
 
   span {
-    color: ${({ variant }) =>
-      variant === 'created' ? 'var(--blue)' : 'var(--purple)'};
+    color: ${({ $variant }) =>
+      $variant === 'created' ? 'var(--blue)' : 'var(--purple)'};
   }
 `;

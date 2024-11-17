@@ -1,12 +1,12 @@
-import { useContext } from 'react';
-import { AppContext } from '@/store/context';
+import { useContextSelector } from 'use-context-selector';
+import { AppContext, AppContextType } from '@/store/context';
 
-export function useToDos() {
-  const context = useContext(AppContext);
+export function useToDos<T>(selector: (context: AppContextType) => T): T {
+  const value = useContextSelector(AppContext, selector);
 
-  if (!context) {
+  if (value === undefined) {
     throw new Error('useToDos must be used within an AppProvider');
   }
 
-  return { ...context };
+  return value;
 }

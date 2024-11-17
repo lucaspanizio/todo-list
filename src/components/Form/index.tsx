@@ -4,7 +4,7 @@ import { useToDos } from '@/hooks/useToDos';
 import * as S from './styles';
 
 export function Form() {
-  const { addToDo } = useToDos();
+  const addToDo = useToDos((context) => context.addToDo);
   const [task, setTask] = useState('');
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
