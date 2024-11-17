@@ -6,6 +6,7 @@ export type ToDo = {
   uuid: string;
   title: string;
   completed: boolean;
+  createdAt: Date;
 };
 
 export type AppContextType = {
@@ -27,13 +28,26 @@ export const AppProvider = ({ children }: PropsWithChildren<{}>) => {
     [toDos],
   );
 
+  function orderToDos(toDos: ToDo[]) {
+    return toDos.sort((a, b) => {
+      if (a.completed === b.completed) {
+        //  Ordenação decrescente por createdAt
+        return b.createdAt.getTime() - a.createdAt.getTime();
+      }
+      // Concluídos vão para o final
+      return a.completed ? 1 : -1;
+    });
+  }
+
   const addToDo = useCallback((title: string) => {
     const newToDo = {
       uuid: uuid(),
       title,
       completed: false,
+      createdAt: new Date(),
     };
-    setToDos((prevToDos) => [...prevToDos, newToDo]);
+
+    setToDos((prevToDos) => orderToDos([...prevToDos, newToDo]));
   }, []);
 
   const removeToDo = useCallback((uuid: string) => {
@@ -41,11 +55,13 @@ export const AppProvider = ({ children }: PropsWithChildren<{}>) => {
   }, []);
 
   const toggleCheckToDo = useCallback((uuid: string) => {
-    setToDos((prevToDos) =>
-      prevToDos.map((toDo) =>
+    setToDos((prevToDos) => {
+      const updatedToDos = prevToDos.map((toDo) =>
         toDo.uuid === uuid ? { ...toDo, completed: !toDo.completed } : toDo,
-      ),
-    );
+      );
+
+      return orderToDos(updatedToDos);
+    });
   }, []);
 
   return (
