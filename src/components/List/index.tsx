@@ -1,5 +1,5 @@
-import { useToDos } from '../../hooks/useToDos';
-import { Card } from '../Card';
+import { useToDos } from '@/hooks/useToDos';
+import { Card } from '@/components/Card';
 import * as S from './styles';
 
 export function List() {

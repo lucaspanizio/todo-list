@@ -1,5 +1,5 @@
-import { useToDos } from '../../hooks/useToDos';
-import { Badge } from '../Badge';
+import { useToDos } from '@/hooks/useToDos';
+import { Badge } from '@/components/Badge';
 import * as S from './styles';
 
 export function Summary() {

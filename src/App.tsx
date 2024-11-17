@@ -1,11 +1,7 @@
 import { Fragment } from 'react';
-import { GlobalStyles } from './GlobalStyles';
-import { Header } from './components/Header';
-import { Content } from './components/Content';
-import { Form } from './components/Form';
-import { Summary } from './components/Summary';
-import { List } from './components/List';
-import { AppProvider } from './store/context';
+import { GlobalStyles } from '@/GlobalStyles';
+import { Header, Content, Form, Summary, List } from '@/components';
+import { AppProvider } from '@/store/context';
 
 export function App() {
   return (

@@ -1,6 +1,6 @@
 import { Trash as TrashIcon } from '@phosphor-icons/react';
-import { useToDos } from '../../hooks/useToDos';
-import { ToDo } from '../../store/context';
+import { useToDos } from '@/hooks/useToDos';
+import { ToDo } from '@/store/context';
 import * as S from './styles';
 
 interface ICardProps {
@@ -8,14 +8,14 @@ interface ICardProps {
 }
 
 export function Card({ data: { uuid, title } }: ICardProps) {
-  const { removeToDo, toogleCheckToDo } = useToDos();
+  const { removeToDo, toggleCheckToDo } = useToDos();
 
   function handleRemove() {
     removeToDo(uuid);
   }
 
   function handleCheck() {
-    toogleCheckToDo(uuid);
+    toggleCheckToDo(uuid);
   }
 
   return (

@@ -1,6 +1,6 @@
 import { FormEvent, useState } from 'react';
 import { PlusCircle as PlusIcon } from '@phosphor-icons/react';
-import { useToDos } from '../../hooks/useToDos';
+import { useToDos } from '@/hooks/useToDos';
 import * as S from './styles';
 
 export function Form() {
