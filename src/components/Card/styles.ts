@@ -7,8 +7,8 @@ export const Card = styled.div`
 
   gap: 1rem;
   padding: 1rem;
-
   width: 100%;
+
   border-radius: 0.375rem;
   border: 1px solid var(--gray-400);
   background-color: var(--gray-500);
@@ -53,6 +53,7 @@ export const Card = styled.div`
   }
 
   span {
+    width: 100%;
     font-size: 0.9rem;
     line-height: 1.25rem;
     color: var(--gray-100);
@@ -71,7 +72,7 @@ export const Card = styled.div`
     justify-content: center;
 
     width: 28px;
-    aspect-ratio: 1/1;
+    height: 28px;
     padding: 0 0.25rem;
 
     border: none;
@@ -85,5 +86,20 @@ export const Card = styled.div`
   button:hover {
     color: var(--danger);
     background-color: var(--gray-400);
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+
+    button {
+      width: 100%;
+      color: var(--danger);
+      background-color: var(--gray-400);
+      opacity: 0.8;
+    }
+
+    button:hover {
+      opacity: 1;
+    }
   }
 `;

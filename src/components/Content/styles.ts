@@ -9,4 +9,17 @@ export const Content = styled.main`
   width: 100%;
   padding-left: 25%;
   padding-right: 25%;
+
+  section {
+    min-width: 600px;
+
+    @media screen and (max-width: 768px) {
+      min-width: auto;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
 `;
