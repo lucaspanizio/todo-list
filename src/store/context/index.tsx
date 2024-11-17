@@ -19,7 +19,7 @@ type AppContextType = {
   toDos: ToDo[];
   addToDo: (title: string) => void;
   removeToDo: (uuid: string) => void;
-  toogleCheckToDo: (uuid: string) => void;
+  toggleCheckToDo: (uuid: string) => void;
 };
 
 export const AppContext = createContext({} as AppContextType);
@@ -45,10 +45,12 @@ export const AppProvider = ({ children }: PropsWithChildren<{}>) => {
     setToDos((prevToDos) => prevToDos.filter((toDo) => toDo.uuid !== uuid));
   }, []);
 
-  const toogleCheckToDo = useCallback((uuid: string) => {
-    const findToDo = toDos.find((toDo) => toDo.uuid === uuid)!;
-    findToDo.completed = !findToDo.completed;
-    setToDos((prevToDos) => [...prevToDos, findToDo]);
+  const toggleCheckToDo = useCallback((uuid: string) => {
+    setToDos((prevToDos) =>
+      prevToDos.map((toDo) =>
+        toDo.uuid === uuid ? { ...toDo, completed: !toDo.completed } : toDo,
+      ),
+    );
   }, []);
 
   return (
@@ -59,7 +61,7 @@ export const AppProvider = ({ children }: PropsWithChildren<{}>) => {
         toDos,
         addToDo,
         removeToDo,
-        toogleCheckToDo,
+        toggleCheckToDo,
       }}
     >
       {children}
